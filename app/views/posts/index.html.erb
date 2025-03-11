@@ -5,12 +5,12 @@
 <h1>Posts</h1>
 
 <div id="posts">
+  <%= turbo_stream_from :posts %>
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div class="card">
+      <%= render post %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= render "form", post: Post.new %>

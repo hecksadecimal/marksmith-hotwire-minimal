@@ -55,3 +55,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "marksmith", "~> 0.3.0"
+gem "commonmarker", "~> 2.1"

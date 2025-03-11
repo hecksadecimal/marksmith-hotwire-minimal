@@ -1,12 +1,13 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+<%= turbo_frame_tag(post) do %>
+  <div id="<%= dom_id post %>" class="post">
+    
+    <h2><%= post.title %></h2>
 
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
+    <p>
+      <strong>Content:</strong>
+      <%== marksmithed sanitize(post.content, tags: %w(table th tr td span) + ActionView::Helpers::SanitizeHelper.sanitizer_vendor.safe_list_sanitizer.allowed_tags.to_a) %>
+    </p>
 
-</div>
+    <%= link_to "Edit this post", edit_post_path(post) %> | <%= button_to "Destroy this post", post, method: :delete %>
+  </div>
+<% end %>
