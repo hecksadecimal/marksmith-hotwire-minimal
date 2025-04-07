@@ -57,4 +57,4 @@ group :test do
 end
 
 gem "marksmith", "~> 0.3.0"
-gem "commonmarker", "~> 2.1"
+gem "commonmarker", "~> 2.3"
